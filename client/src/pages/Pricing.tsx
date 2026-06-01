@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { Check, Sparkles, Loader2, Crown, ChartNoAxesColumnIcon, Zap, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Check, Sparkles, Loader2, Crown, Zap, Shield } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import toast from "react-hot-toast";
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Clock, Trash2, ExternalLink, Search, AlertCircle, Loader2, Filter, ArrowUpDown, Zap, Crown } from "lucide-react";
+import { Clock, Trash2, ExternalLink, Search, AlertCircle, Loader2, Filter, ArrowUpDown, Crown } from "lucide-react";
 import ScoreGauge from "../components/ScoreGauge";
 import { useApp } from "../context/AppContext";
 
@@ -31,7 +31,6 @@ export default function History() {
     const [sortBy, setSortBy] = useState("newest");
     const [deleteModal, setDeleteModal] = useState<{ id: string; url: string } | null>(null);
     const [deleteConfirmText, setDeleteConfirmText] = useState("");
-    const isPro = user?.plan === "pro";
 
     const fetchAnalyses = async () => {
         setLoading(true);

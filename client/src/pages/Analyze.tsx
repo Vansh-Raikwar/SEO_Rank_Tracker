@@ -79,8 +79,8 @@ export default function Analyze() {
         } catch (err: any) {
             const errData = err.response?.data;
             if (errData?.limitReached) {
-                setDailyUsed(errData.dailyUsed);
-                setDailyLimit(errData.dailyLimit);
+                setUsedScans(errData.dailyUsed);
+                setScanLimit(errData.dailyLimit);
                 setError(errData.message);
             } else {
                 setError(errData?.message || "Something went wrong. Please try again.");

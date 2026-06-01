@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Loader2, ChartNoAxesColumnIcon, User2Icon, KeyRound } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import toast from "react-hot-toast";
@@ -162,7 +162,7 @@ export default function Login({ state }: { state: string }) {
                                 </div>
                                 {isLoginState && !isOtpMode && (
                                     <div className="flex justify-end mt-1.5">
-                                        <Link to="/reset-password" size="sm" className="text-xs text-primary hover:underline">
+                                        <Link to="/reset-password" className="text-xs text-primary hover:underline">
                                             Forgot password?
                                         </Link>
                                     </div>

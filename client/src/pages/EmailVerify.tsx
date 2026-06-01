@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Mail, Loader2, ChartNoAxesColumnIcon, ArrowLeft } from "lucide-react";
+import { Loader2, ChartNoAxesColumnIcon, ArrowLeft } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -110,7 +110,7 @@ export default function EmailVerify() {
                             {otp.map((digit, index) => (
                                 <input
                                     key={index}
-                                    ref={(el) => (inputRefs.current[index] = el)}
+                                    ref={(el) => { inputRefs.current[index] = el; }}
                                     type="text"
                                     maxLength={1}
                                     value={digit}
