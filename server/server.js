@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000", "https://seo-rank-tracker-nine.vercel.app", "https://seo-rank-tracker-frontend-red.vercel.app"],
     credentials: true
 }))
 app.use(cookieParser())

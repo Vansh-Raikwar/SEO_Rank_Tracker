@@ -26,7 +26,7 @@ type AppContextType = {
     setToken: (token: string | null) => void;
 }
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 
 const api = axios.create({
     baseURL: BACKEND_URL,
@@ -56,7 +56,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const login = async (email: string, password: string) => {
         try {
-            const { data } = await api.post(`${BACKEND_URL}/api/auth/login`, { email, password });
+            const { data } = await api.post(`/api/auth/login`, { email, password });
             if (data.success) {
                 setToken(data.token);
                 setUser(data.user);
@@ -71,7 +71,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const register = async (name: string, email: string, password: string) => {
         try {
-            const { data } = await api.post(`${BACKEND_URL}/api/auth/register`, { name, email, password });
+            const { data } = await api.post(`/api/auth/register`, { name, email, password });
             if (data.success) {
                 setToken(data.token);
                 setUser(data.user);
@@ -86,7 +86,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const logout = async () => {
         try {
-            await api.post(`${BACKEND_URL}/api/auth/logout`);
+            await api.post(`/api/auth/logout`);
             setToken(null);
             setUser(null);
             localStorage.removeItem("token");
@@ -107,7 +107,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setToken(currentToken);
 
         try {
-            const { data } = await api.get(`${BACKEND_URL}/api/auth/user`);
+            const { data } = await api.get(`/api/auth/user`);
             if (data.success) {
                 setUser(data.user);
             }
